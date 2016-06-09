@@ -21,7 +21,9 @@ class CreateGamesTable extends Migration
              $table->integer('score_2')->unsigned();
              $table->integer('character_1')->unsigned();
              $table->integer('character_2')->unsigned();
-             $table->timestamps();
+             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+             $table->string('app_version', 10);
 
              // foreign keys
              $table->foreign('player_1')->references('id')->on('players');

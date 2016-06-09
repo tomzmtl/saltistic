@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class PlayerSeeder extends Seeder
 {
     private $data = [
-        ['Ato',        8],
+        ['ATo',        8],
         ['Sendo',     25],
         ['Neocid',     3],
         ['Plauriola',  9],
@@ -23,7 +23,7 @@ class PlayerSeeder extends Seeder
     {
         DB::table('players')->insert(array_map(function ($player) {
             return [
-                'full_name' => $player[0],
+                'name' => $player[0],
                 'favorite_character' => $player[1],
             ];
         },

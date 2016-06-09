@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'PageController@index');
+Route::get('add', 'PageController@add');
+Route::post('game/add', 'GameController@add');
+Route::get('bot', function() { return 'I See What You Did There.'; });

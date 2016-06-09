@@ -1,6 +1,6 @@
 # Saltistic
 
-> Don't get mad, get salty!
+> Don't get mad, Get salty!
 
 ## Installation
 
@@ -15,4 +15,5 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 
 ### Tech Stack
 
-* Laravel 5.2 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
+* [Laravel 5.2](https://laravel.com/docs/5.2)
+* [Semantic UI](http://semantic-ui.com/)

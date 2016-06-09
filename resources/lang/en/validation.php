@@ -80,6 +80,8 @@ return [
     'unique'               => 'The :attribute has already been taken.',
     'url'                  => 'The :attribute format is invalid.',
 
+    'kill_count' => 'The kill count for player :index is incorrect.',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

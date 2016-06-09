@@ -156,6 +156,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /* Helpers */
+        App\Providers\HelperServiceProvider::class,
+
     ],
 
     /*
