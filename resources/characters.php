@@ -1,0 +1,67 @@
+<?php
+
+/* ----------------------------------
+
+    CHARACTER DATABASE
+
+----------------------------------- */
+
+
+// [ ID, HANDLE, FULLNAME ]
+return [
+    [ 54, 'bay', 'Bayonetta'        ],
+    [  3, 'bow', 'Bowser'           ],
+    [ 38, 'bjr', 'Bowser Jr.'       ],
+    [ 25, 'cfc', 'Captain Falcon'   ],
+    [ 23, 'chz', 'Charizard'        ],
+    [ 53, 'cld', 'Cloud'            ],
+    [ 42, 'cor', 'Corrin'           ],
+    [ 44, 'dkp', 'Dark Pit'         ],
+    [  7, 'ddk', 'Diddy Kong'       ],
+    [  6, 'dkk', 'Donkey Kong'      ],
+    [ 49, 'dkh', 'Duck Hunt'        ],
+    [  4, 'drm', 'Dr. Mario'        ],
+    [ 19, 'fal', 'Falco'            ],
+    [ 18, 'fox', 'Fox'              ],
+    [ 11, 'gan', 'Ganondorf'        ],
+    [ 39, 'gre', 'Greninja'         ],
+    [ 30, 'ike', 'Ike'              ],
+    [ 21, 'jig', 'Jigglypuff'       ],
+    [ 17, 'ddd', 'King Dedede'      ],
+    [ 15, 'kby', 'Kirby'            ],
+    [  8, 'lnk', 'Link'             ],
+    [ 46, 'lmc', 'Little Mac'       ],
+    [ 24, 'lcr', 'Lucario'          ],
+    [ 27, 'luc', 'Lucas'            ],
+    [ 41, 'lcn', 'Lucina'           ],
+    [  1, 'lui', 'Luigi'            ],
+    [  0, 'mar', 'Mario'            ],
+    [ 28, 'mth', 'Marth'            ],
+    [ 50, 'mgm', 'Mega Man'         ],
+    [ 16, 'mtk', 'Meta Knight'      ],
+    [ 22, 'mew', 'Mewtwo'           ],
+    [ 31, 'mgw', 'Mr. Game & Watch' ],
+    [ 26, 'nes', 'Ness'             ],
+    [ 34, 'oli', 'Olimar'           ],
+    [ 51, 'pac', 'Pac-Man'          ],
+    [ 43, 'pal', 'Palutena'         ],
+    [  2, 'pea', 'Peach'            ],
+    [ 20, 'pik', 'Pikachu'          ],
+    [ 32, 'pit', 'Pit'              ],
+    [ 35, 'rob', 'R.O.B.'           ],
+    [ 40, 'rbn', 'Robin'            ],
+    [ 37, 'rsl', 'Rosalina & Luma'  ],
+    [ 29, 'roy', 'Roy'              ],
+    [ 52, 'ryu', 'Ryu'              ],
+    [ 13, 'sam', 'Samus'            ],
+    [ 36, 'son', 'Sonic'            ],
+    [ 10, 'shk', 'Sheik'            ],
+    [ 48, 'shu', 'Shulk'            ],
+    [ 12, 'tlk', 'Toon Link'        ],
+    [ 45, 'vil', 'Villager'         ],
+    [ 33, 'war', 'Wario'            ],
+    [ 47, 'wft', 'Wii Fit Trainer'  ],
+    [  5, 'yos', 'Yoshi'            ],
+    [  9, 'zel', 'Zelda'            ],
+    [ 14, 'zss', 'Zero Suit Samus'  ],
+];

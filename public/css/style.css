@@ -1,0 +1,60 @@
+body {
+    background: teal;
+}
+
+.wrap {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.sidebar {
+    position: fixed;
+    width: 35%;
+    height: 100vh;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.sidebar header h1 {
+    margin-bottom: 0;
+    font-size: 4vw;
+}
+
+.sidebar header h2 {
+    margin-top: 0;
+    font-size: 1.5vw;
+}
+
+.sidebar footer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
+    opacity: 0.3;
+}
+
+main {
+    width: 100%;
+    margin-left: 35%;
+    padding: 40px 0;
+    background: #EEE;
+}
+
+main .ui.table {
+    width: 70%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main .ui.table .winner-1 {
+    font-weight: bold;
+    color: teal;
+}
+
+main .title {
+    text-align: center;
+}
