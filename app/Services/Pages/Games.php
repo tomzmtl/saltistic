@@ -2,10 +2,10 @@
 
 namespace App\Services\Pages;
 
-use App\Repositories\GameRepository;
 use App\Repositories\PlayerRepository;
 use App\Repositories\SaltRepository;
-use App\Services\CharacterStore;
+use App\Repositories\GameRepository;
+use App\Stores\CharacterStore;
 use App\Services\GameLogic;
 use App\Services\GameResults;
 use App\Services\Salt;
@@ -14,10 +14,10 @@ Class Games
 {
     public function __construct (GameRepository $game, PlayerRepository $player, SaltRepository $salt)
     {
-        $this->Game = $game;
         $this->Player = $player;
         $this->Salt = $salt;
-        $this->characters = new CharacterStore();
+        $this->Game = $game;
+        $this->Characters = new CharacterStore();
     }
 
     public function index ()
@@ -35,7 +35,7 @@ Class Games
     public function add ()
     {
         return [
-            'characters' => $this->characters->getAll(),
+            'characters' => $this->Characters->getAll(),
             'players' => $this->Player->all()->sortBy('name'),
             'stocks' => [GameLogic::MIN_STOCKS, GameLogic::MAX_STOCKS],
         ];

@@ -10,7 +10,13 @@ class SaltRepository extends Repository
 
     public function ranked ()
     {
-        return $this->model->orderBy('score', 'desc')->get();
+        $rankify = function ($row, $index) {
+            $row->rank = $index+1;
+            return $row;
+        };
+
+        $rows = $this->model->orderBy('score', 'desc')->get()->map($rankify);
+        return $rows->toBase();
     }
 
     public function addOrUpdate ($playerId, $score)
@@ -18,5 +24,10 @@ class SaltRepository extends Repository
         $item = $this->model->firstOrNew(['player' => $playerId]);
         $item->score = $score;
         $item->save();
+    }
+
+    public function ofPlayer ($playerId)
+    {
+        return $this->ranked()->where('player', $playerId)->first();
     }
 }

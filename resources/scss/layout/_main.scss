@@ -1,6 +1,6 @@
 
 .main-title {
-  margin: 0;
+  margin: $mobile-header-height 0 0 0;
   padding: 15px 0 15px 20px;
   background: #EEE;
   border-bottom: 1px solid #CCC;
@@ -47,6 +47,7 @@ main {
 @media (min-width: $layout-switch-threshold)
 {
   .main-title {
+    margin-top: 0;
     text-align: left;
   }
 

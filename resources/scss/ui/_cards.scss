@@ -16,4 +16,37 @@
   > h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
   }
+
+  + .ui.card {
+    margin-top: $card-spacing;
+  }
+
+  &.no-padding {
+    padding: 0;
+  }
+}
+
+@mixin switchCardMargins {
+  .ui.card + .ui.card {
+    margin-top: 0;
+    margin-left: $card-spacing;
+  }
+}
+
+@media (min-width: $layout-switch-threshold)
+{
+  .ui.two.cards {
+    flex-direction: row;
+
+    @include switchCardMargins;
+  }
+}
+
+@media (min-width: $layout-switch-threshold + 200)
+{
+  .ui.three.cards {
+    flex-direction: row;
+
+    @include switchCardMargins;
+  }
 }

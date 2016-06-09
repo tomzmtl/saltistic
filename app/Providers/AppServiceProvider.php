@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
-use App\Services\CharacterStore;
+use App\Facade\Player;
+use App\Repositories\PlayerRepository;
+use App\Stores\CharacterStore;
+use App\Stores\PlayerStore;
 use Illuminate\Support\ServiceProvider;
 use Validator;
 
@@ -20,28 +23,50 @@ class AppServiceProvider extends ServiceProvider
             return new CharacterStore();
         });
 
+        $this->app->singleton('PlayerStore', function ($app) {
+            return new PlayerStore(new PlayerRepository($app));
+        });
+
         $CS = new CharacterStore();
 
         // version number
         setAppVersionData($CS);
         view()->share('appVersion', [
           'number' => config('app.version.number'),
-          'icon'   => $CS->getIconUrl(config('app.version.character')),
+          'icon'   => $CS->getImgUrl(config('app.version.character')),
         ]);
 
         // favicon
-        view()->share('faviconUrl', asset($CS->getIconUrl(config('app.version.character'))));
+        view()->share('faviconUrl', $CS->getImgUrl(config('app.version.character')));
 
         // main body class
-        $bodyClass = $request->path();
-        if ($bodyClass === '/') {
-            $bodyClass = 'index';
-        } else {
-            $bodyClass = str_replace('/', '-', $bodyClass);
-        }
-        view()->share('bodyClass', $bodyClass);
+        view()->share('bodyClass', $this->getBodyClasses($request->path()));
 
-        // custom validation
+
+
+        $this->extendValidator();
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    private function getBodyClasses ($path)
+    {
+        if ($path === '/') {
+            return 'index';
+        }
+        return strtolower(str_replace('/', ' ', $path));
+    }
+
+    private function extendValidator ()
+    {
         Validator::extend('kill_count', function($attribute, $value, $parameters, $validator) {
             $values = $validator->getData();
 
@@ -73,15 +98,5 @@ class AppServiceProvider extends ServiceProvider
         Validator::replacer('kill_count', function ($message, $attribute, $rule, $parameters) {
             return str_replace(':index', substr($attribute, -1), $message);
         });
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
     }
 }

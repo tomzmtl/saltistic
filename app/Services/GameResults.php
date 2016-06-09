@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Services\GameLogic;
-use App\Services\CharacterStore;
+use App\Stores\CharacterStore;
 
 class GameResults
 {
@@ -28,7 +28,7 @@ class GameResults
                      'score' => $game->score_1,
                     'winner' => GameLogic::isWinner(1, $game),
                     'character' => [
-                      'icon' => $this->characters->getIconUrl($game->character_1),
+                      'icon' => $this->characters->getImgUrl($game->character_1),
                       'name' => $this->characters->getName($game->character_1),
                     ],
                 ],
@@ -37,7 +37,7 @@ class GameResults
                      'score' => $game->score_2,
                     'winner' => GameLogic::isWinner(2, $game),
                     'character' => [
-                      'icon' => $this->characters->getIconUrl($game->character_2),
+                      'icon' => $this->characters->getImgUrl($game->character_2),
                       'name' => $this->characters->getName($game->character_2),
                     ],
                 ]

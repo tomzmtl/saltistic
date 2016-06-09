@@ -1,8 +1,4 @@
 footer {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  padding: 20px;
   font-size: 0.8em;
 
   * {
@@ -27,6 +23,7 @@ footer {
   @media (max-width: $layout-switch-threshold)
   {
     text-align: center;
+    margin: 30px 0;
 
     span {
       color: #AAA;
@@ -36,12 +33,17 @@ footer {
 
   @media (min-width: $layout-switch-threshold)
   {
-    width: $sidebar-width;
-    left: $sidebar-border-width;
+    $left-offset: 20px;
+
+    position: fixed;
+    width: $sidebar-width - ($sidebar-border-width + $left-offset * 2);
+    left: $sidebar-border-width + $left-offset;
+    top: calc(100vh - 40px);
+    z-index: 300;
 
     span {
       color: $primary-1-dark;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.3);
     }
 
   }

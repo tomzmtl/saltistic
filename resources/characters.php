@@ -30,15 +30,15 @@ return [
     [ 18, 'ddd', 'King Dedede'      ],
     [ 16, 'kby', 'Kirby'            ],
     [  9, 'lnk', 'Link'             ],
-    [ 47, 'lmc', 'Little Mac'       ],
+    [ 47, 'lmc', 'Little Mac'       ], // 0.3
     [ 25, 'lcr', 'Lucario'          ],
     [ 28, 'luc', 'Lucas'            ],
-    [ 42, 'lcn', 'Lucina'           ],
+    [ 42, 'lcn', 'Lucina'           ], // 0.4
     [  2, 'lui', 'Luigi'            ],
     [  1, 'mar', 'Mario'            ],
     [ 29, 'mth', 'Marth'            ],
     [ 51, 'mgm', 'Mega Man'         ],
-    [ 17, 'mtk', 'Meta Knight'      ],
+    [ 17, 'mtk', 'Meta Knight'      ], // 0.7
     [ 23, 'mew', 'Mewtwo'           ],
     [ 32, 'mgw', 'Mr. Game & Watch' ],
     [ 27, 'nes', 'Ness'             ],
@@ -59,8 +59,8 @@ return [
     [ 49, 'shu', 'Shulk'            ],
     [ 13, 'tlk', 'Toon Link'        ],
     [ 46, 'vil', 'Villager'         ],
-    [ 34, 'war', 'Wario'            ],
-    [ 48, 'wft', 'Wii Fit Trainer'  ],
+    [ 34, 'war', 'Wario'            ], // 0.5
+    [ 48, 'wft', 'Wii Fit Trainer'  ], // 0.6
     [  6, 'yos', 'Yoshi'            ],
     [ 10, 'zel', 'Zelda'            ],
     [ 15, 'zss', 'Zero Suit Samus'  ],

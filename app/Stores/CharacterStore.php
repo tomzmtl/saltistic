@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Stores;
 
 Class CharacterStore
 {
@@ -25,8 +25,9 @@ Class CharacterStore
     {
         return collect(array_map(function($char) {
             return (object) [
-              'id' => $char[self::INDEX_ID],
+              'id'   => $char[self::INDEX_ID],
               'name' => $char[self::INDEX_NAME],
+              'code' => $char[self::INDEX_CODE],
             ];
         }, $this->characters));
     }
@@ -61,12 +62,15 @@ Class CharacterStore
         return $this->getCode(rand(0, self::COUNT));
     }
 
-    public function getIconUrl ($id) {
+    public function getImgUrl ($id, $size = 'small')
+    {
         $url = 'img/characters/unknown.png';
         if ($this->isIdValid($id)) {
             $code = $this->getCode($id);
-            $url  = 'img/characters/small/'.$code.'.png';
+            $url  = 'img/characters/'.$size.'/'.$code.'.png';
         }
         return asset($url);
     }
+
+
 }

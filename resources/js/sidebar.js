@@ -1,13 +1,18 @@
 
+let trigger = null;
 let element = null;
 
 let visible = false;
 const CLASS = 'visible';
 
-function init() {
-  element = document.getElementById('sidebar-nav');
-  const trigger = document.getElementById('mobile-menu-trigger');
-  trigger.addEventListener('click', toggle);
+function render() {
+  if (visible) {
+    element.classList.add(CLASS);
+    trigger.classList.add(CLASS);
+    return;
+  }
+  element.classList.remove(CLASS);
+  trigger.classList.remove(CLASS);
 }
 
 function toggle() {
@@ -15,10 +20,10 @@ function toggle() {
   render();
 }
 
-function render() {
-  visible ? element.classList.add(CLASS) : element.classList.remove(CLASS);
+function init() {
+  element = document.getElementById('sidebar-nav');
+  trigger = document.getElementById('mobile-menu-trigger');
+  trigger.addEventListener('click', toggle);
 }
 
-export default {
-  init,
-}
+export default { init };

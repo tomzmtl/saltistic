@@ -60,7 +60,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	document.addEventListener('DOMContentLoaded', function () {
-
 	  _sidebar2.default.init();
 	});
 
@@ -74,15 +73,20 @@
 	  value: true
 	});
 
+	var trigger = null;
 	var element = null;
 
 	var visible = false;
 	var CLASS = 'visible';
 
-	function init() {
-	  element = document.getElementById('sidebar-nav');
-	  var trigger = document.getElementById('mobile-menu-trigger');
-	  trigger.addEventListener('click', toggle);
+	function render() {
+	  if (visible) {
+	    element.classList.add(CLASS);
+	    trigger.classList.add(CLASS);
+	    return;
+	  }
+	  element.classList.remove(CLASS);
+	  trigger.classList.remove(CLASS);
 	}
 
 	function toggle() {
@@ -90,13 +94,13 @@
 	  render();
 	}
 
-	function render() {
-	  visible ? element.classList.add(CLASS) : element.classList.remove(CLASS);
+	function init() {
+	  element = document.getElementById('sidebar-nav');
+	  trigger = document.getElementById('mobile-menu-trigger');
+	  trigger.addEventListener('click', toggle);
 	}
 
-	exports.default = {
-	  init: init
-	};
+	exports.default = { init: init };
 
 /***/ }
 /******/ ]);

@@ -11,13 +11,18 @@
 |
 */
 
+// Index
 Route::get('/', 'PageController@index');
 
+// Games
 Route::get('games',     'GameController@index');
 Route::get('games/add', 'GameController@add');
-
 Route::post('addGame', 'GameController@postAdd');
 
+// Players
+Route::get('player/{player}', 'PlayerController@profile');
+
+// Bot redirect
 Route::get('bot', function() { return 'i See wHat you dId There.'; });
 
 // Api

@@ -12,7 +12,7 @@ use Illuminate\Container\Container;
  */
 abstract class AbstractRepository implements RepositoryInterface
 {
-
+    protected $all;
     protected $modelClass;
 
     public function __construct(Container $app)
@@ -27,7 +27,12 @@ abstract class AbstractRepository implements RepositoryInterface
 
     public function all ($columns = array('*'))
     {
-        return $this->model->all($columns);
+        if ($this->all) {
+            return $this->all;
+        }
+        $results = $this->model->all($columns)->toBase();
+        $this->all = $results;
+        return $results;
     }
 
     public function find ($id, $columns = array('*'))

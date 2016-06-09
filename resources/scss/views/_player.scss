@@ -1,0 +1,97 @@
+
+body.player {
+  .ui.columns {
+    > .col {
+      width: 40%;
+    }
+
+    .col + .col {
+      width: 60%;
+    }
+  }
+
+  .characters {
+    .item {
+      + .item {
+        margin-left: 1px;
+      }
+    }
+
+    img {
+      display: block;
+      width: 60px;
+      height: 63px;
+    }
+
+    .info {
+      padding: 0.4em 0 0.5em 0;
+      text-align: center;
+      font-size: 1.4em;
+      color: $primary-1-base;
+      background: lighten(desaturate($primary-1-light, 50%), 10%);
+    }
+  }
+
+  .overview {
+    .stats {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      &.enemy {
+        border-top: 5px solid #EEE;
+      }
+    }
+
+    .stat {
+      padding: 10px 0;
+      text-align: center;
+
+      + .stat {
+        border-top: 1px solid #EEE;
+      }
+
+      .value {
+        font-weight: bold;
+        color: $secondary-1-base;
+      }
+
+      &.multiline {
+        .value {
+          display: block;
+        }
+      }
+
+      &.big {
+        .value {
+          font-size: 2em;
+        }
+      }
+
+      &.rank {
+        padding:5px 0;
+        border-top-color: #f7f7f7;
+        font-size:0.8em;
+      }
+    }
+  }
+
+
+  /*  MEDIA QUERIES
+  ----------------------*/
+
+  @media (min-width: 840px)
+  {
+
+    .ui.columns {
+      > .col {
+        width: 30%;
+      }
+
+      .col + .col {
+        width: 70%;
+      }
+    }
+  }
+
+}

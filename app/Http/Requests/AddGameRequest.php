@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
-use App\Services\CharacterStore;
+use App\Stores\CharacterStore;
 use App\Services\GameLogic;
 
 class AddGameRequest extends Request

@@ -3,7 +3,11 @@
     <head>
         <title>Saltistic</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet" type="text/css">
+        @if (env('APP_ENV') === 'production')
+            <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet" type="text/css">
+        @else
+            <link rel="stylesheet" href="{{ asset('css/fonts.css') }}" type="text/css">
+        @endif
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}" media="screen" charset="utf-8">
         <link rel="icon" href="{{ $faviconUrl }}">
         <script src={{ asset('js/bundle.js') }}></script>
@@ -27,22 +31,21 @@
                     <nav class="nav" id="sidebar-nav">
                         <ul>
                             <li class="{{ $bodyClass === 'index' ? 'active' : '' }}">
-                                <a href="{{ url('/') }}">
-                                    <h4 class="ui header">Dashboard</h4>
-                                    <p>Check out what's new</p>
-                                </a>
+                                <a href="{{ url('/') }}">Dashboard</a>
                             </li>
-                            <li class="{{ $bodyClass === 'games-add' ? 'active' : '' }}">
-                                <a href="{{ url('games/add') }}">
-                                    <h4 class="ui header">Add a game</h4>
-                                    <p>Show me your moves!</p>
-                                </a>
+                            <li class="{{ $bodyClass === 'games add' ? 'active' : '' }}">
+                                <a href="{{ url('games/add') }}">Add a game</a>
                             </li>
                             <li class="{{ $bodyClass === 'games' ? 'active' : '' }}">
-                                <a href="{{ url('games') }}">
-                                    <h4 class="ui header">See all games</h4>
-                                </a>
+                                <a href="{{ url('games') }}">See all games</a>
                             </li>
+                        </ul>
+                        <ul class="players">
+                            @foreach(Player::getAll() as $player)
+                                <li class="{{ $bodyClass === 'player '.strtolower($player->name) ? 'active' : '' }}">
+                                    <a href="{{ url('player/'.$player->name) }}">{{ $player->name }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </nav>
                 </div>

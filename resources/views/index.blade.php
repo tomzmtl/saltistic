@@ -18,7 +18,11 @@
         <div class="ui table saltymeter">
             @foreach ($saltymeter as $player)
                 <div class="row">
-                    <div class="cell name">{{ $player->name }}</div>
+                    <div class="cell name">
+                        <a href="{{ url('player/'.$player->name) }}">
+                            {{ $player->name }}
+                        </a>
+                    </div>
                     <div class="cell score line-y">{{ $player->score }}</div>
                 </div>
             @endforeach

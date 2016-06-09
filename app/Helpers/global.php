@@ -1,6 +1,7 @@
 <?php
 
-function selectIfOld($name, $value) {
+function selectIfOld($name, $value)
+{
     $old = old($name);
     if ($old === null) {
         return;
@@ -10,7 +11,8 @@ function selectIfOld($name, $value) {
     }
 }
 
-function setAppVersionData ($characters) {
+function setAppVersionData ($characters)
+{
     $data = trim(file_get_contents(base_path('.version')));
     $data = explode('/', $data);
     config(['app.version.number' => $data[0]]);

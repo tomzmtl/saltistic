@@ -49,6 +49,42 @@ a {
   box-shadow: 0 1px 5px #CCC; }
   .ui.card > h1, .ui.card h2, .ui.card h3, .ui.card h4, .ui.card h5, .ui.card h6 {
     margin-top: 0; }
+  .ui.card + .ui.card {
+    margin-top: 20px; }
+  .ui.card.no-padding {
+    padding: 0; }
+
+@media (min-width: 810px) {
+  .ui.two.cards {
+    flex-direction: row; }
+    .ui.two.cards .ui.card + .ui.card {
+      margin-top: 0;
+      margin-left: 20px; } }
+
+@media (min-width: 1010px) {
+  .ui.three.cards {
+    flex-direction: row; }
+    .ui.three.cards .ui.card + .ui.card {
+      margin-top: 0;
+      margin-left: 20px; } }
+
+.ui.grid {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; }
+  .ui.grid > .item {
+    list-style-type: none; }
+
+.ui.columns {
+  display: flex;
+  flex-direction: row; }
+  .ui.columns .col {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto; }
+    .ui.columns .col + .col {
+      margin-left: 20px; }
 
 .ui.form input,
 .ui.form select,
@@ -150,8 +186,15 @@ a {
   .ui.table .cell.line-y {
     border-left: 1px solid #DDD; }
 
-.sidebar {
+.sidebar-wrapper {
   position: relative;
+  z-index: 200; }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 50px;
   color: white;
   background: #007070; }
@@ -168,34 +211,35 @@ a {
       margin: auto;
       width: 32px;
       height: 32px; }
+    .sidebar .mobile-menu-trigger.visible {
+      background: #002020; }
   .sidebar .nav {
-    background: #003d3d; }
+    background: #007070; }
     .sidebar .nav ul {
       padding: 0;
       margin: 0;
       list-style-type: none;
       border-top: 1px solid #002020;
-      border-bottom: 1px solid #002020; }
+      border-bottom: 1px solid #002020;
+      background: #003d3d; }
+      .sidebar .nav ul + ul {
+        margin-top: 30px; }
     .sidebar .nav a {
       display: block;
       padding: 1em;
-      text-decoration: none; }
-    .sidebar .nav h4 {
-      margin: 0;
+      text-decoration: none;
       color: white; }
-    .sidebar .nav p {
-      margin: 0;
-      color: #2fdada;
-      font-size: 0.9em; }
     .sidebar .nav li:hover a {
       background: #003838; }
-    .sidebar .nav li:hover:not(.active) p {
-      color: #e34022; }
     .sidebar .nav li.active a {
       border-right: 5px solid #e34022;
       background: #002020; }
     .sidebar .nav li + li {
       border-top: 1px solid #002020; }
+    .sidebar .nav .players a {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      font-size: 0.9em; }
 
 .sidebar-title {
   padding: 10px 0; }
@@ -221,16 +265,18 @@ a {
 ----------------------*/
 @media (max-width: 810px) {
   .sidebar .nav {
-    position: absolute;
+    max-width: 320px;
+    position: fixed;
     top: 50px;
     left: 0;
     width: 100%;
-    height: 100vh;
-    z-index: 200;
+    opacity: 0;
+    height: calc(100vh - 50px);
     transform: translateX(-100%);
     transition: 100ms ease-out; }
     .sidebar .nav.visible {
-      transform: translateX(0); }
+      transform: translateX(0);
+      opacity: 1; }
   .sidebar-title .title {
     text-align: center; } }
 
@@ -239,7 +285,6 @@ a {
     min-width: 340px;
     height: 100vh; }
   .sidebar {
-    position: fixed;
     top: 0;
     left: 0;
     width: 340px;
@@ -262,7 +307,7 @@ a {
       font-weight: normal; } }
 
 .main-title {
-  margin: 0;
+  margin: 50px 0 0 0;
   padding: 15px 0 15px 20px;
   background: #EEE;
   border-bottom: 1px solid #CCC;
@@ -293,16 +338,13 @@ main {
 ----------------------*/
 @media (min-width: 810px) {
   .main-title {
+    margin-top: 0;
     text-align: left; }
   .main-content {
     margin-left: 0;
     margin-right: 0; } }
 
 footer {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  padding: 20px;
   font-size: 0.8em;
   /*  MEDIA QUERIES
   ----------------------*/ }
@@ -317,26 +359,31 @@ footer {
     height: 20px; }
   @media (max-width: 810px) {
     footer {
-      text-align: center; }
+      text-align: center;
+      margin: 30px 0; }
       footer span {
         color: #AAA;
         text-shadow: 0 1px 0 white; } }
   @media (min-width: 810px) {
     footer {
-      width: 340px;
-      left: 30px; }
+      position: fixed;
+      width: 270px;
+      left: 50px;
+      top: calc(100vh - 40px);
+      z-index: 300; }
       footer span {
         color: #002020;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); } }
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); } }
 
 body.index .main-content {
   max-width: 480px; }
 
-body.index .ui.card {
-  margin-bottom: 20px; }
-  body.index .ui.card.games .link {
-    margin-top: 10px;
-    text-align: center; }
+body.index .ui.card.salt a {
+  text-decoration: none; }
+
+body.index .ui.card.games .link {
+  margin-top: 10px;
+  text-align: center; }
 
 @media (max-width: 810px) {
   body.index .ui.card h2 {
@@ -345,18 +392,21 @@ body.index .ui.card {
 @media (min-width: 810px) {
   body.index .main-content {
     max-width: 900px; }
-  body.index .ui.card.games {
-    min-width: 380px; } }
+  body.index .ui.card {
+    max-width: 100%; }
+    body.index .ui.card.games {
+      min-width: 380px; } }
 
 @media (min-width: 960px) {
   body.index .ui.cards {
     flex-direction: row; }
   body.index .ui.card.salt {
-    width: 35%;
-    margin-right: 20px; }
+    width: 35%; }
   body.index .ui.card.games {
     width: 65%;
-    min-width: 380px; } }
+    margin-left: 20px; }
+  body.index .ui.card + .ui.card {
+    margin-top: 0; } }
 
 body.games .main-content {
   max-width: 600px; }
@@ -365,34 +415,81 @@ body.games .main-content {
   body.games .ui.card {
     margin-left: 0; } }
 
-body.games-add {
+body.games.add {
   /*  MEDIA QUERIES
   ----------------------*/ }
-  body.games-add .ui.cards {
+  body.games.add .ui.cards {
     margin-bottom: 20px; }
-  body.games-add .ui.card.stocks {
+  body.games.add .ui.card.stocks {
     margin-bottom: 20px; }
-  body.games-add .ui.btn {
+  body.games.add .ui.btn {
     margin-top: 20px; }
-  body.games-add .g-recaptcha {
+  body.games.add .g-recaptcha {
     width: 304px; }
   @media (max-width: 810px) {
-    body.games-add .main-content {
+    body.games.add .main-content {
       max-width: 500px; }
-    body.games-add .ui.card.player:first-child {
+    body.games.add .ui.card.player:first-child {
       margin-bottom: 20px; }
-    body.games-add .g-recaptcha {
+    body.games.add .g-recaptcha {
       margin-left: auto;
       margin-right: auto; }
-    body.games-add .ui-btn {
+    body.games.add .ui-btn {
       width: 100%; } }
   @media (min-width: 810px) {
-    body.games-add .ui.cards {
+    body.games.add .ui.cards {
       flex-direction: row; }
-    body.games-add .ui.card.stocks {
+    body.games.add .ui.card.stocks {
       width: calc(50% - (20px / 2));
       margin-left: 0; }
-    body.games-add .ui.card.player {
+    body.games.add .ui.card.player {
       width: 50%; }
-      body.games-add .ui.card.player:first-child {
+      body.games.add .ui.card.player:first-child {
         margin-right: 20px; } }
+
+body.player {
+  /*  MEDIA QUERIES
+  ----------------------*/ }
+  body.player .ui.columns > .col {
+    width: 40%; }
+  body.player .ui.columns .col + .col {
+    width: 60%; }
+  body.player .characters .item + .item {
+    margin-left: 1px; }
+  body.player .characters img {
+    display: block;
+    width: 60px;
+    height: 63px; }
+  body.player .characters .info {
+    padding: 0.4em 0 0.5em 0;
+    text-align: center;
+    font-size: 1.4em;
+    color: #007070;
+    background: #f5fafa; }
+  body.player .overview .stats {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; }
+    body.player .overview .stats.enemy {
+      border-top: 5px solid #EEE; }
+  body.player .overview .stat {
+    padding: 10px 0;
+    text-align: center; }
+    body.player .overview .stat + .stat {
+      border-top: 1px solid #EEE; }
+    body.player .overview .stat .value {
+      font-weight: bold;
+      color: #e34022; }
+    body.player .overview .stat.multiline .value {
+      display: block; }
+    body.player .overview .stat.big .value {
+      font-size: 2em; }
+    body.player .overview .stat.rank {
+      padding: 5px 0;
+      border-top-color: #f7f7f7;
+      font-size: 0.8em; }
+  @media (min-width: 840px) {
+    body.player .ui.columns > .col {
+      width: 30%; }
+    body.player .ui.columns .col + .col {
+      width: 70%; } }

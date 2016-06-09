@@ -1,0 +1,15 @@
+
+.ui.columns {
+  display: flex;
+  flex-direction: row;
+
+  .col {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+    + .col {
+      margin-left: $card-spacing;
+    }
+  }
+}

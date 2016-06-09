@@ -1,8 +1,14 @@
 
-$mobile-header-height: 50px;
+.sidebar-wrapper {
+  position: relative;
+  z-index: 200;
+}
 
 .sidebar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: $mobile-header-height;
   color: white;
   background: $primary-1-base;
@@ -23,10 +29,14 @@ $mobile-header-height: 50px;
       width: 32px;
       height: 32px;
     }
+
+    &.visible {
+      background: $primary-1-dark;
+    }
   }
 
   .nav {
-    background: $primary-1-darker;
+    background: $primary-1-base;
 
     ul {
       padding: 0;
@@ -34,46 +44,39 @@ $mobile-header-height: 50px;
       list-style-type: none;
       border-top: 1px solid $primary-1-dark;
       border-bottom: 1px solid $primary-1-dark;
+      background: $primary-1-darker;
+
+      + ul {
+        margin-top: 30px;
+      }
     }
 
     a {
       display: block;
       padding: 1em;
       text-decoration: none;
-    }
-
-    h4 {
-      margin: 0;
       color: white;
     }
 
-    p {
-      margin: 0;
-      color: lighten(desaturate($primary-1-base, 30%), 30%);
-      font-size: 0.9em;
-    }
-
     li {
-      &:hover {
-        a {
-          background: darken($primary-1-darker, 1%);
-        }
-
-        &:not(.active) p {
-          color: $secondary-1-base;
-        }
+      &:hover a {
+        background: darken($primary-1-darker, 1%);
       }
 
-      &.active {
-        a {
-          border-right: 5px solid $secondary-1-base;
-          background: $primary-1-dark;
-        }
+      &.active a {
+        border-right: 5px solid $secondary-1-base;
+        background: $primary-1-dark;
       }
 
       + li {
         border-top: 1px solid $primary-1-dark;
       }
+    }
+
+    .players a {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      font-size: 0.9em;
     }
   }
 }
@@ -122,17 +125,19 @@ $mobile-header-height: 50px;
 @media (max-width: $layout-switch-threshold)
 {
   .sidebar .nav {
-    position: absolute;
+    max-width: 320px;
+    position: fixed;
     top: $mobile-header-height;
     left: 0;
     width: 100%;
-    height: 100vh;
-    z-index: 200;
+    opacity: 0;
+    height: calc(100vh - #{$mobile-header-height});
     transform: translateX(-100%);
     transition: 100ms ease-out;
 
     &.visible {
       transform: translateX(0);
+      opacity: 1;
     }
   }
 
@@ -150,7 +155,6 @@ $mobile-header-height: 50px;
   }
 
   .sidebar {
-    position: fixed;
     top: 0;
     left: 0;
     width: $sidebar-width;

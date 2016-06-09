@@ -5,8 +5,11 @@ body.index {
   }
 
   .ui.card {
-    margin-bottom: $card-spacing;
-
+    &.salt {
+      a {
+        text-decoration: none;
+      }
+    }
     &.games {
       .link {
         margin-top: 10px;
@@ -33,6 +36,8 @@ body.index {
     }
 
     .ui.card {
+      max-width: 100%;
+
       &.games {
         min-width: 380px;
       }
@@ -50,12 +55,15 @@ body.index {
     .ui.card {
       &.salt {
         width: 35%;
-        margin-right: $card-spacing;
       }
 
       &.games {
         width: 65%;
-        min-width: 380px;
+        margin-left: $card-spacing;
+      }
+
+      + .ui.card {
+        margin-top: 0;
       }
     }
   }

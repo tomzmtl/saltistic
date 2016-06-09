@@ -205,6 +205,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // custom
+        'Player' => App\Facades\PlayerFacade::class,
+
     ],
 
 
