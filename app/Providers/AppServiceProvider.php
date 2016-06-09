@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Saltistic\CharacterStore;
+use App\Services\CharacterStore;
 use Illuminate\Support\ServiceProvider;
 use Validator;
 
@@ -13,14 +13,33 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(\Illuminate\Http\Request $request)
     {
-        // random favicon
+        // App binding
+        $this->app->singleton('CharacterStore', function ($app) {
+            return new CharacterStore();
+        });
+
         $CS = new CharacterStore();
-        view()->share('favicon', asset('img/characters/small/'.$CS->getRandomCode().'.png'));
 
         // version number
-        view()->share('appVersion', getAppVersion());
+        setAppVersionData();
+        view()->share('appVersion', [
+          'number' => config('app.version.number'),
+          'icon'   => $CS->getIconUrl(config('app.version.character')),
+        ]);
+
+        // favicon
+        view()->share('faviconUrl', asset($CS->getIconUrl(config('app.version.character'))));
+
+        // main body class
+        $bodyClass = $request->path();
+        if ($bodyClass === '/') {
+            $bodyClass = 'index';
+        } else {
+            $bodyClass = camel_case(str_replace('/', '_', $bodyClass));
+        }
+        view()->share('bodyClass', $bodyClass);
 
         // custom validation
         Validator::extend('kill_count', function($attribute, $value, $parameters, $validator) {

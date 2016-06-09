@@ -2,22 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Game;
 use App\Http\Requests\AddGameRequest;
+use App\Services\GameService;
+use App\Services\Pages\Games;
+use App\Services\Recaptcha;
 
 class GameController extends Controller
 {
-    public function add (AddGameRequest $request)
+    public function __construct (GameService $service, Games $data)
     {
-        $data = array_merge($request->all(), ['app_version' => getAppVersion()]);
-        $response = $request->input('g-recaptcha-response');
-        $host = $request->server('HTTP_HOST');
+        $this->GameService = $service;
+        $this->data = $data;
+    }
 
-        if (!env('APP_DEBUG') && !isHuman($response, $host)) {
+    public function add ()
+    {
+        return view('add', $this->data->add());
+    }
+
+    public function index ()
+    {
+        return view('games', $this->data->index());
+    }
+
+    public function postAdd (AddGameRequest $request)
+    {
+        $recaptcha = new Recaptcha($request);
+
+        if (!$recaptcha->verify())
+        {
             return redirect('bot');
         }
 
-        Game::create($data);
+        $data = array_merge($request->all(), ['app_version' => config('app.version.number')]);
+        $this->GameService->createEntry($data);
 
         return redirect('/')->with('gameAdded', true);
     }

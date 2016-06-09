@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Saltistic;
+namespace App\Services;
 
 Class CharacterStore
 {
@@ -42,6 +42,9 @@ Class CharacterStore
 
     public function getCode ($index)
     {
+        if (is_string($index)) {
+          $index = (int) $index;
+        }
         foreach ($this->characters as $character) {
             if ($character[self::INDEX_ID] === $index) {
                 $code = $character[self::INDEX_CODE];

@@ -2,13 +2,13 @@
 <html>
     <head>
         <title>Saltistic</title>
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/semantic-ui.css') }}" media="screen" charset="utf-8">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" media="screen" charset="utf-8">
-        <link rel="icon" href="{{ $favicon }}">
+        <link rel="icon" href="{{ $faviconUrl }}">
         @yield('scripts')
     </head>
-    <body>
+    <body class="{{ $bodyClass }}">
         <div class="wrap">
             <div class="sidebar-wrapper">
                 <div class="sidebar">
@@ -18,17 +18,23 @@
                     </header>
                     <nav>
                         <div class="ui vertical menu">
-                            <a class="item" href="{{ url('/') }}">
-                                <h4 class="ui header">Home</h4>
+                            <a class="item {{ $bodyClass === 'index' ? 'active' : '' }}" href="{{ url('/') }}">
+                                <h4 class="ui header">Dashboard</h4>
                                 <p>Check out what's new</p>
                             </a>
-                            <a class="item" href="{{ url('add') }}">
+                            <a class="item {{ $bodyClass === 'gamesAdd' ? 'active' : '' }}" href="{{ url('games/add') }}">
                                 <h4 class="ui header">Add a game</h4>
-                                <p>Create a new entry</p>
+                                <p>Show me your moves!</p>
+                            </a>
+                            <a class="item {{ $bodyClass === 'games' ? 'active' : '' }}" href="{{ url('games') }}">
+                                <h4 class="ui header">See all games</h4>
                             </a>
                         </div>
                     </nav>
-                    <footer>build {{ $appVersion }}</footer>
+                    <footer>
+                      <span>Build {{ $appVersion['number'] }}</span>
+                      <img src="{{ $appVersion['icon'] }}">
+                    </footer>
                 </div>
             </div>
             <main class="container">

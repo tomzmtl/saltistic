@@ -10,13 +10,9 @@ function selectIfOld($name, $value) {
     }
 }
 
-function getAppVersion () {
-    return trim(file_get_contents(base_path('.version')));
-}
-
-function isHuman ($response)
-{
-    $recaptcha = new \ReCaptcha\ReCaptcha('6Ld_7iATAAAAAFfsWAiZyFGAB5QDX4KaGOusespd');
-    $resp = $recaptcha->verify($response, $_SERVER);
-    return $resp->isSuccess();
+function setAppVersionData () {
+    $data = trim(file_get_contents(base_path('.version')));
+    $data = explode('/', $data);
+    config(['app.version.number' => $data[0]]);
+    config(['app.version.character' => $data[1]]);
 }

@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
-use App\Saltistic\CharacterStore;
-use App\Saltistic\GameLogic;
+use App\Services\CharacterStore;
+use App\Services\GameLogic;
 
 class AddGameRequest extends Request
 {

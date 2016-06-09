@@ -70,7 +70,8 @@ body > .wrap {
     background: rgba(0,0,0,0.3);
 }
 
-.sidebar .vertical.menu .item:hover {
+.sidebar .vertical.menu .item:hover,
+.sidebar .vertical.menu .item.active {
     background: #002020;
 }
 
@@ -80,11 +81,11 @@ body > .wrap {
 
 .sidebar .menu .item h4 {
     color: white;
-    margin-top: 0;
-    margin-bottom: 0.4em;
+    margin-bottom: 0;
 }
 
 .sidebar .menu .item p {
+    margin-top: 0.4em;
     color: #00E9E9;
 }
 
@@ -94,19 +95,30 @@ body > .wrap {
     left: 0;
     bottom: 0;
     padding: 20px;
-    opacity: 0.3;
+}
+
+.sidebar footer * {
+  vertical-align: middle;
+}
+
+.sidebar footer span {
+  opacity: 0.3;
+}
+
+.sidebar footer img {
+  width: 20px;
+  height: 20px;
 }
 
 main {
     width: 100%;
     max-width: 1000px;
-    padding: 50px;
+    padding: 50px 2vw;
     background: #EEE;
 }
 
 main > .wrap {
-    width: 90%;
-    max-width: 600px;
+    width: 92%;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -126,10 +138,6 @@ main .ui.table .name.winner-1 {
     color: #f54f41;
 }
 
-main .title {
-    text-align: center;
-}
-
 .ui.button {
     background: #f54f41;
     color: white;
@@ -138,4 +146,24 @@ main .title {
 .ui.button:hover {
     background: #e34022;
     color: white;
+}
+
+.saltymeter .score {
+    font-weight: bold;
+}
+
+body.games .ui.table {
+    max-width: 600px;
+}
+
+body.gamesAdd .ui.card {
+    width: 100%;
+}
+
+.ui.two.cards > .card.saltymeter {
+    width: calc(35% - 2em);
+}
+
+.ui.two.cards > .card.games {
+    width: calc(65% - 2em);
 }

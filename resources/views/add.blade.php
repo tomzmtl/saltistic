@@ -8,7 +8,8 @@
 
 @section('content')
 
-<h1 class="ui header centered">Add a game</h1>
+<h1 class="ui header">Add a game</h1>
+<div class="ui divider"></div>
 
 @if ($errors->all())
     <div class="ui error message">
@@ -23,12 +24,10 @@
     </div>
 @endif
 
-<form action="{{ url('game/add') }}" method="POST" class="">
+<form action="{{ url('addGame') }}" method="POST">
     {{ csrf_field() }}
 
     <div class="ui form">
-
-        <div class="ui divider"></div>
 
         <div class="ui two column grid">
             <div class="required field column {{ $errors->has('stocks') ? 'error' : '' }}">

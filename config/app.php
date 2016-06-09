@@ -207,4 +207,16 @@ return [
 
     ],
 
+
+    // APP VERSION
+
+    'version' => [
+      'number' => null,
+      'icon'   => null,
+    ],
+
+    // RECAPTCHA
+
+    'recaptcha' => env('APP_RECAPTCHA', true),
+
 ];
