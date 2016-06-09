@@ -17,12 +17,12 @@ class GameController extends Controller
 
     public function add ()
     {
-        return view('add', $this->data->add());
+        return view('games.add', $this->data->add());
     }
 
     public function index ()
     {
-        return view('games', $this->data->index());
+        return view('games.index', $this->data->index());
     }
 
     public function postAdd (AddGameRequest $request)

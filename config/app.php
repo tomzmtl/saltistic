@@ -212,6 +212,7 @@ return [
 
     'version' => [
       'number' => null,
+      'name'   => null,
       'icon'   => null,
     ],
 

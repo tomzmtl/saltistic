@@ -1,0 +1,16 @@
+.main-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*  MEDIA QUERIES
+----------------------*/
+
+@media (min-width: $layout-switch-threshold)
+{
+  .main-wrap {
+    flex-direction: row
+  }
+}

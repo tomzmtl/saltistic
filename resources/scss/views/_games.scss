@@ -1,0 +1,15 @@
+
+body.games {
+  .main-content {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: $layout-switch-threshold)
+{
+  body.games {
+    .ui.card {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+
+.main-title {
+  margin: 0;
+  padding: 15px 0 15px 20px;
+  background: #EEE;
+  border-bottom: 1px solid #CCC;
+  text-align: center;
+
+  div {
+    max-width: $max-main-width;
+  }
+}
+
+.main-content {
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid white;
+  max-width: $max-main-width;
+}
+
+main {
+  width: 100%;
+  padding-bottom: 30px;
+
+  .ui.table {
+    .icon img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .icon.winner-0 img {
+      opacity: 0.5;
+    }
+
+    .name.winner-1 {
+      font-weight: bold;
+      color: $secondary-1-base;
+    }
+  }
+}
+
+
+/*  MEDIA QUERIES
+----------------------*/
+
+@media (min-width: $layout-switch-threshold)
+{
+  .main-title {
+    text-align: left;
+  }
+
+  .main-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,25 @@
+
+.ui.form {
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #CCC;
+    -webkit-appearance: none;
+  }
+
+  .field {
+    margin-top: 10px;
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

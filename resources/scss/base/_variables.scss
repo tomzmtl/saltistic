@@ -1,0 +1,14 @@
+
+$layout-switch-threshold: 810px;
+$max-main-width: 900px;
+$card-spacing: 20px;
+$card-padding: 15px;
+$sidebar-width: 340px;
+$sidebar-border-width: 30px;
+
+$primary-1-base: #007070;
+$primary-1-darker: darken($primary-1-base, 10%);//#003030;
+$primary-1-light: desaturate(lighten($primary-1-base, 65%), 20%);//#ccf0f0;
+$primary-1-dark: #002020;
+
+$secondary-1-base: #e34022;

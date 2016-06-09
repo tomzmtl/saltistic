@@ -1,9 +1,10 @@
 @extends('master')
 
-@section('content')
+@section('title')
+    Dashboard
+@endsection
 
-<h1 class="ui header">Dashboard</h1>
-<div class="ui divider"></div>
+@section('content')
 
 @if (session('gameAdded'))
     <div class="ui positive message">
@@ -11,59 +12,48 @@
     </div>
 @endif
 
-<div class="ui two stackable cards">
-    <div class="card saltymeter">
-        <section class="content">
-            <h2 class="ui header">Salt-y-meter</h2>
-            <table class="ui striped celled table">
-                <tbody>
-                    @foreach ($saltymeter as $player)
-                        <tr>
-                            <td>{{ $player->name }}</td>
-                            <td class="score">{{ $player->score }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </section>
+<div class="ui cards">
+    <div class="ui card salt">
+        <h2>Salt-y-Meter</h2>
+        <div class="ui table saltymeter">
+            @foreach ($saltymeter as $player)
+                <div class="row">
+                    <div class="cell name">{{ $player->name }}</div>
+                    <div class="cell score line-y">{{ $player->score }}</div>
+                </div>
+            @endforeach
+        </div>
     </div>
-    <div class="card games">
-        <section class="content">
-            <h2 class="ui header">Latest Games</h2>
-            <table class="ui striped table">
-                <tbody>
-                    @foreach ($results as $result)
-                        <tr>
-                            <td class="center aligned icon winner-{{ (int) $result[1]['winner'] }} large monitor only">
-                                <img src="{{ $result[1]['character']['icon'] }}" title="{{ $result[1]['character']['name'] }}">
-                            </td>
-                            <td class="name right aligned winner-{{ (int) $result[1]['winner'] }}">
-                                {{ $result[1]['name'] }}
-                            </td>
-                            <td class="center aligned">
-                                {{ $result[1]['score'] }}
-                            </td>
-                            <td class="center aligned">
-                                {{ $result[2]['score'] }}
-                            </td>
-                            <td class="name winner-{{ (int) $result[2]['winner'] }}">
-                                {{ $result[2]['name'] }}
-                            </td>
-                            <td class="center aligned icon winner-{{ (int) $result[2]['winner'] }} large monitor only">
-                                <img src="{{ $result[2]['character']['icon'] }}" title="{{ $result[2]['character']['name'] }}">
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-                <tfoot class="full-width">
-                    <tr>
-                        <th colspan="6" class="center aligned">
-                            <a href="{{ url('games') }}">See the full list</a>
-                        </th>
-                    </tr>
-                </tfoot>
-            </table>
-        </section>
+
+    <div class="ui card games">
+        <h2>Latest games</h2>
+        <div class="ui table gamelist lines-x">
+            @foreach ($results as $result)
+                <div class="row">
+                    <div class="cell icon winner-{{ (int) $result[1]['winner'] }} ">
+                        <img src="{{ $result[1]['character']['icon'] }}" title="{{ $result[1]['character']['name'] }}">
+                    </div>
+                    <div class="cell first name winner-{{ (int) $result[1]['winner'] }}">
+                        {{ $result[1]['name'] }}
+                    </div>
+                    <div class="cell score">
+                        {{ $result[1]['score'] }}
+                    </div>
+                    <div class="cell score line-y">
+                        {{ $result[2]['score'] }}
+                    </div>
+                    <div class="cell second name winner-{{ (int) $result[2]['winner'] }}">
+                        {{ $result[2]['name'] }}
+                    </div>
+                    <div class="cell icon winner-{{ (int) $result[2]['winner'] }}">
+                        <img src="{{ $result[2]['character']['icon'] }}" title="{{ $result[2]['character']['name'] }}">
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="link">
+            <a href="{{ url('games') }}">See the full list</a>
+        </div>
     </div>
 </div>
 

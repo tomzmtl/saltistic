@@ -2,11 +2,38 @@
   "private": true,
   "scripts": {
     "prod": "gulp --production",
-    "dev": "gulp watch"
+    "dev": "gulp watch; webpack --watch;"
   },
   "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "bootstrap-sass": "^3.0.0",
+    "extract-loader": "0.0.2",
     "gulp": "^3.9.1",
-    "laravel-elixir": "^5.0.0",
-    "bootstrap-sass": "^3.0.0"
-  }
+    "gulp-cli": "^1.2.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.3.1",
+    "node-libs-browser": "^1.0.0",
+    "node-sass": "^3.7.0",
+    "sass-loader": "^3.2.0",
+    "webpack": "^1.13.1"
+  },
+  "name": "saltistic",
+  "description": "> Don't get mad, Get salty!",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://tomzmtl@github.com/tomzmtl/Saltistic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomzmtl/Saltistic/issues"
+  },
+  "homepage": "https://github.com/tomzmtl/Saltistic#readme"
 }

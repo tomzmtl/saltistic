@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Repositories\PlayerRepository;
+use App\Repositories\SaltRepository;
 use App\Services\GameLogic;
 use Illuminate\Support\Collection;
 
@@ -9,14 +11,24 @@ class Salt
 {
     private $rankings = [];
 
+    public function __construct (SaltRepository $salt, PlayerRepository $player)
+    {
+        $this->Salt = $salt;
+        $this->Player = $player;
+    }
+
+    public function getRankings ()
+    {
+        return self::rankings($this->Salt->ranked(), $this->Player->all());
+    }
+
     public static function rankings (Collection $salt, Collection $players)
     {
-        $i = 1;
-        return $salt->map(function($row) use ($players, $i) {
+        return $salt->map(function($row, $index) use ($players) {
             return (object) [
                     'name' => $players->where('id', $row->player)->first()->name,
                    'score' => $row->score,
-                    'rank' => $i++,
+                    'rank' => $index+1,
             ];
         });
     }

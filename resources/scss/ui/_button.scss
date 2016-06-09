@@ -1,0 +1,16 @@
+
+.ui.btn {
+  padding: 0.6em 1em;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  background: $secondary-1-base;
+  color: white;
+  border-radius: 2px;
+  font-size: 1.2em;
+  cursor: pointer;
+
+  &:hover {
+    background: darken($secondary-1-base, 5%);
+    color: white;
+  }
+}

@@ -1,0 +1,19 @@
+
+.ui.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.ui.card {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: $card-padding;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 1px 5px #CCC;
+
+  > h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+  }
+}

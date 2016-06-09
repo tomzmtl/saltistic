@@ -8,6 +8,19 @@ If you're not used to run Laravel apps (or PHP apps in general), the easiest rou
 
 [Read the official documentation](https://laravel.com/docs/5.2/homestead).
 
+## Development
+
+```bash
+# Install npm dependencies
+npm install
+
+# run gulp watch (SASS)
+gulp watch
+
+# webpack watch (JS)
+webpack --watch
+```
+
 ### License
 
 Open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
@@ -15,5 +28,10 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 
 ### Tech Stack
 
+#### Backend
 * [Laravel 5.2](https://laravel.com/docs/5.2)
-* [Semantic UI](http://semantic-ui.com/)
+
+#### Frontend
+* [Webpack](https://webpack.github.io)
+* ES2015 with [Babel](https://babeljs.io)
+* [SASS](http://sass-lang.com/)

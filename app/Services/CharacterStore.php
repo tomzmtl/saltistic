@@ -33,6 +33,9 @@ Class CharacterStore
 
     public function getName ($index)
     {
+        if (is_string($index)) {
+          $index = (int) $index;
+        }
         foreach ($this->characters as $character) {
             if ($character[self::INDEX_ID] === $index) {
                 return $character[self::INDEX_NAME];

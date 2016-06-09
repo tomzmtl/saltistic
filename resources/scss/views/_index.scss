@@ -1,0 +1,62 @@
+
+body.index {
+  .main-content {
+    max-width: 480px;
+  }
+
+  .ui.card {
+    margin-bottom: $card-spacing;
+
+    &.games {
+      .link {
+        margin-top: 10px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: $layout-switch-threshold)
+{
+  body.index .ui.card {
+    h2 {
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: $layout-switch-threshold)
+{
+  body.index {
+    .main-content {
+      max-width: $max-main-width;
+    }
+
+    .ui.card {
+      &.games {
+        min-width: 380px;
+      }
+    }
+  }
+}
+
+@media (min-width: 960px)
+{
+  body.index {
+    .ui.cards {
+      flex-direction: row;
+    }
+
+    .ui.card {
+      &.salt {
+        width: 35%;
+        margin-right: $card-spacing;
+      }
+
+      &.games {
+        width: 65%;
+        min-width: 380px;
+      }
+    }
+  }
+}

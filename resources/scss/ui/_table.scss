@@ -1,0 +1,55 @@
+
+$border: 1px solid #DDD;
+
+.ui.table {
+  display: table;
+  width: 100%;
+  border-bottom: $border;
+  border-right: $border;
+
+  .row {
+    display: table-row;
+    justify-content: space-between;
+
+    &:first-child {
+      border-top: 0;
+
+      .cell {
+        border-top: $border;
+      }
+    }
+
+    &:nth-of-type(odd) {
+      background: rgba(255,255,255,0.25);
+    }
+
+    &:nth-of-type(even) {
+      background: rgba(0,0,0,0.025);
+    }
+  }
+
+  .cell {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 6px 15px;
+
+    &:first-child {
+      border-left: $border;
+    }
+  }
+
+  .cell-inner {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &.lines-x .cell,
+  .cell.line-x {
+    border-top: $border;
+  }
+
+  &.lines-y .cell,
+  .cell.line-y {
+    border-left: $border;
+  }
+}

@@ -1,0 +1,48 @@
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 20px;
+  font-size: 0.8em;
+
+  * {
+    vertical-align: middle;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    position: relative;
+    bottom: 3px;
+    width: 20px;
+    height: 20px;
+  }
+
+
+  /*  MEDIA QUERIES
+  ----------------------*/
+
+  @media (max-width: $layout-switch-threshold)
+  {
+    text-align: center;
+
+    span {
+      color: #AAA;
+      text-shadow: 0 1px 0 white;
+    }
+  }
+
+  @media (min-width: $layout-switch-threshold)
+  {
+    width: $sidebar-width;
+    left: $sidebar-border-width;
+
+    span {
+      color: $primary-1-dark;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+  }
+}

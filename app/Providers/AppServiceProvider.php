@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
         $CS = new CharacterStore();
 
         // version number
-        setAppVersionData();
+        setAppVersionData($CS);
         view()->share('appVersion', [
           'number' => config('app.version.number'),
           'icon'   => $CS->getIconUrl(config('app.version.character')),
@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
         if ($bodyClass === '/') {
             $bodyClass = 'index';
         } else {
-            $bodyClass = camel_case(str_replace('/', '_', $bodyClass));
+            $bodyClass = str_replace('/', '-', $bodyClass);
         }
         view()->share('bodyClass', $bodyClass);
 

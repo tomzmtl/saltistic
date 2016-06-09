@@ -19,3 +19,14 @@ Route::get('games/add', 'GameController@add');
 Route::post('addGame', 'GameController@postAdd');
 
 Route::get('bot', function() { return 'i See wHat you dId There.'; });
+
+// Api
+$apiConfig = [
+    'middleware' => 'cors',
+    'prefix' => 'api/v1',
+];
+
+Route::group($apiConfig, function () {
+    Route::get('version', 'ApiController@version');
+    Route::get('salt', 'ApiController@salt');
+});

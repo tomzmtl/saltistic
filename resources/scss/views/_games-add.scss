@@ -1,0 +1,67 @@
+
+$recaptcha-width: 304px;
+
+body.games-add {
+  .ui.cards {
+    margin-bottom: $card-spacing;
+  }
+
+  .ui.card.stocks {
+    margin-bottom: $card-spacing;
+  }
+
+  .ui.btn {
+    margin-top: $card-spacing;
+  }
+
+  .g-recaptcha {
+    width: $recaptcha-width;
+  }
+
+
+
+  /*  MEDIA QUERIES
+  ----------------------*/
+
+  @media (max-width: $layout-switch-threshold)
+  {
+    .main-content {
+      max-width: 500px;
+    }
+
+    .ui.card.player {
+      &:first-child {
+        margin-bottom: $card-spacing;
+      }
+    }
+
+    .g-recaptcha {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ui-btn {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $layout-switch-threshold)
+  {
+    .ui.cards {
+      flex-direction: row;
+    }
+
+    .ui.card.stocks {
+      width: calc(50% - (#{$card-spacing} / 2));
+      margin-left: 0;
+    }
+
+    .ui.card.player {
+      width: 50%;
+
+      &:first-child {
+        margin-right: $card-spacing;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #EEE;
+  font-family: Lato, Helvetica, sans-serif;
+}
+
+a {
+  color: $primary-1-base;
+
+  &:hover {
+    color: darken($primary-1-base, 5%);
+  }
+}

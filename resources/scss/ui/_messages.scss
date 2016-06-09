@@ -1,0 +1,26 @@
+
+.ui.message {
+  margin-bottom: $card-spacing;
+  padding: $card-padding;
+  border: 1px solid;
+
+  .heading {
+    font-weight: bold;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  &.error {
+    color: #C33;
+    border-color: #C99;
+    background: #FFF7F7;
+  }
+
+  &.positive {
+    color: #6B6;
+    border-color: #ADA;
+    background: #F7FFF7;
+  }
+}

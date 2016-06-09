@@ -1,0 +1,43 @@
+.ui.gamelist {
+  .cell {
+    &.icon {
+      display: none;
+      padding: 6px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &.score {
+      width: 12%;
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
+    }
+    &.name {
+      width: 38%;
+
+      &.first {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.ui.gamelist {
+  @media (min-width: 380px)
+  {
+    .cell.icon {
+      display: block;
+    }
+  }
+
+  @media (min-width: 860px)
+  {
+    .cell.icon img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
