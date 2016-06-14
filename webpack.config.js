@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = {
 
   entry: ['./resources/js/app.js'],
@@ -8,16 +10,20 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/, // Match both .js and .jsx files
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel',
         query: {
-          presets: ['es2015']
+          presets: ['es2015', 'react', 'stage-2']
         }
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat'
+    }
   },
 }

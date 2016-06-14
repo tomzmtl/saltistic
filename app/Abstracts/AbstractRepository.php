@@ -12,7 +12,6 @@ use Illuminate\Container\Container;
  */
 abstract class AbstractRepository implements RepositoryInterface
 {
-    protected $all;
     protected $modelClass;
 
     public function __construct(Container $app)
@@ -25,17 +24,12 @@ abstract class AbstractRepository implements RepositoryInterface
         return $this->model->create($attributes);
     }
 
-    public function all ($columns = array('*'))
+    public function all ($columns = ['*'])
     {
-        if ($this->all) {
-            return $this->all;
-        }
-        $results = $this->model->all($columns)->toBase();
-        $this->all = $results;
-        return $results;
+        return $this->model->all($columns)->toBase();
     }
 
-    public function find ($id, $columns = array('*'))
+    public function find ($id, $columns = ['*'])
     {
         return $this->model->find($id, $columns);
     }

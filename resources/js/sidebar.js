@@ -1,29 +1,34 @@
-
-let trigger = null;
-let element = null;
-
-let visible = false;
 const CLASS = 'visible';
 
-function render() {
-  if (visible) {
-    element.classList.add(CLASS);
-    trigger.classList.add(CLASS);
-    return;
+class Sidebar
+{
+  constructor() {
+    this.visible = false;
+    this.element = document.getElementById('sidebar-nav');
+    this.trigger = document.getElementById('mobile-menu-trigger');
+
+    this.render = () => {
+      if (this.visible) {
+        this.element.classList.add(CLASS);
+        this.trigger.classList.add(CLASS);
+        return;
+      }
+      this.element.classList.remove(CLASS);
+      this.trigger.classList.remove(CLASS);
+    };
+
+    this.toggle = () => {
+      this.visible = !this.visible;
+      this.render();
+    };
+
+    this.trigger.addEventListener('click', this.toggle);
   }
-  element.classList.remove(CLASS);
-  trigger.classList.remove(CLASS);
 }
 
-function toggle() {
-  visible = !visible;
-  render();
-}
 
 function init() {
-  element = document.getElementById('sidebar-nav');
-  trigger = document.getElementById('mobile-menu-trigger');
-  trigger.addEventListener('click', toggle);
+  return new Sidebar();
 }
 
 export default { init };

@@ -8,7 +8,11 @@
     "babel-core": "^6.9.1",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
     "bootstrap-sass": "^3.0.0",
     "eslint": "^2.11.1",
     "eslint-config-airbnb": "^9.0.1",
@@ -26,8 +30,8 @@
     "webpack": "^1.13.1"
   },
   "name": "saltistic",
-  "description": "> Don't get mad, Get salty!",
-  "version": "1.0.0",
+  "description": "Don't get mad, Get salty!",
+  "version": "0.5.1",
   "main": "gulpfile.js",
   "directories": {
     "test": "tests"
@@ -41,5 +45,11 @@
   "bugs": {
     "url": "https://github.com/tomzmtl/Saltistic/issues"
   },
-  "homepage": "https://github.com/tomzmtl/Saltistic#readme"
+  "homepage": "https://github.com/tomzmtl/Saltistic#readme",
+  "dependencies": {
+    "preact": "^4.8.0",
+    "preact-compat": "^1.7.1",
+    "preact-redux": "^1.0.1",
+    "redux": "^3.5.2"
+  }
 }

@@ -49,10 +49,12 @@ a {
   box-shadow: 0 1px 5px #CCC; }
   .ui.card > h1, .ui.card h2, .ui.card h3, .ui.card h4, .ui.card h5, .ui.card h6 {
     margin-top: 0; }
-  .ui.card + .ui.card {
-    margin-top: 20px; }
   .ui.card.no-padding {
     padding: 0; }
+
+@media (max-width: 810px) {
+  .ui.card + .ui.card {
+    margin-top: 20px; } }
 
 @media (min-width: 810px) {
   .ui.two.cards {
@@ -86,7 +88,8 @@ a {
     .ui.columns .col + .col {
       margin-left: 20px; }
 
-.ui.form input,
+.ui.form input[type="text"],
+.ui.form input[type="email"],
 .ui.form select,
 .ui.form textarea {
   width: 100%;
@@ -97,11 +100,12 @@ a {
 
 .ui.form .field {
   margin-top: 10px; }
-  .ui.form .field label {
-    display: block;
-    margin-bottom: 4px; }
   .ui.form .field:first-child {
     margin-top: 0; }
+
+.ui.form label {
+  display: block;
+  margin-bottom: 4px; }
 
 .ui.gamelist .cell.icon {
   display: none;
@@ -185,6 +189,28 @@ a {
   .ui.table.lines-y .cell,
   .ui.table .cell.line-y {
     border-left: 1px solid #DDD; }
+
+.ui.radioset {
+  display: flex; }
+  .ui.radioset > label {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    margin: 0 1px 0 0;
+    background: #EEE;
+    color: #007070; }
+    .ui.radioset > label span {
+      margin: auto; }
+    .ui.radioset > label input {
+      display: none; }
+    .ui.radioset > label.selected {
+      background: #003d3d;
+      color: white;
+      font-weight: bold; }
+    .ui.radioset > label:first-child {
+      border-radius: 2px 0 0 2px; }
+    .ui.radioset > label:last-child {
+      border-radius: 0 2px 2px 0; }
 
 .sidebar-wrapper {
   position: relative;
@@ -429,8 +455,6 @@ body.games.add {
   @media (max-width: 810px) {
     body.games.add .main-content {
       max-width: 500px; }
-    body.games.add .ui.card.player:first-child {
-      margin-bottom: 20px; }
     body.games.add .g-recaptcha {
       margin-left: auto;
       margin-right: auto; }

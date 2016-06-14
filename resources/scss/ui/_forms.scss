@@ -1,6 +1,7 @@
 
 .ui.form {
-  input,
+  input[type="text"],
+  input[type="email"],
   select,
   textarea {
     width: 100%;
@@ -13,13 +14,13 @@
   .field {
     margin-top: 10px;
 
-    label {
-      display: block;
-      margin-bottom: 4px;
-    }
-
     &:first-child {
       margin-top: 0;
     }
+  }
+
+  label {
+    display: block;
+    margin-bottom: 4px;
   }
 }

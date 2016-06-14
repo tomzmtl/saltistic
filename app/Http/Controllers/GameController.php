@@ -17,7 +17,8 @@ class GameController extends Controller
 
     public function add ()
     {
-        return view('games.add', $this->data->add());
+        return view('games.preact', $this->data->add());
+        //return view('games.add', $this->data->add());
     }
 
     public function index ()

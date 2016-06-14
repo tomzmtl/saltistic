@@ -29,12 +29,6 @@ body.games.add {
       max-width: 500px;
     }
 
-    .ui.card.player {
-      &:first-child {
-        margin-bottom: $card-spacing;
-      }
-    }
-
     .g-recaptcha {
       margin-left: auto;
       margin-right: auto;

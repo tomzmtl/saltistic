@@ -1,0 +1,34 @@
+.ui.radioset {
+  display: flex;
+
+  > label {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    margin: 0 1px 0 0;
+    background: #EEE;
+    color: $primary-1-base;
+
+    span {
+      margin: auto;
+    }
+
+    input {
+      display: none;
+    }
+
+    &.selected {
+      background: $primary-1-darker;
+      color: white;
+      font-weight: bold;
+    }
+
+    &:first-child {
+      border-radius: 2px 0 0 2px;
+    }
+
+    &:last-child {
+      border-radius: 0 2px 2px 0;
+    }
+  }
+}

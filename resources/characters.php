@@ -16,7 +16,7 @@ return [
     [ 24, 'chz', 'Charizard'        ],
     [ 54, 'cld', 'Cloud'            ],
     [ 43, 'cor', 'Corrin'           ],
-    [ 45, 'dkp', 'Dark Pit'         ],
+    [ 45, 'dkp', 'Dark Pit'         ], // 0.2
     [  8, 'ddk', 'Diddy Kong'       ],
     [  7, 'dkk', 'Donkey Kong'      ],
     [ 50, 'dkh', 'Duck Hunt'        ],
@@ -42,7 +42,7 @@ return [
     [ 23, 'mew', 'Mewtwo'           ],
     [ 32, 'mgw', 'Mr. Game & Watch' ],
     [ 27, 'nes', 'Ness'             ],
-    [ 35, 'oli', 'Olimar'           ],
+    [ 35, 'oli', 'Olimar'           ], // 0.1
     [ 52, 'pac', 'Pac-Man'          ],
     [ 44, 'pal', 'Palutena'         ],
     [  3, 'pea', 'Peach'            ],

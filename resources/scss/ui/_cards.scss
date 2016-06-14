@@ -17,10 +17,6 @@
     margin-top: 0;
   }
 
-  + .ui.card {
-    margin-top: $card-spacing;
-  }
-
   &.no-padding {
     padding: 0;
   }
@@ -30,6 +26,13 @@
   .ui.card + .ui.card {
     margin-top: 0;
     margin-left: $card-spacing;
+  }
+}
+
+@media (max-width: $layout-switch-threshold)
+{
+  .ui.card + .ui.card {
+    margin-top: $card-spacing;
   }
 }
 

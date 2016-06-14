@@ -34,9 +34,20 @@ Class Games
 
     public function add ()
     {
+        $playerColumns = ['id', 'name', 'favorite_character'];
+
+
+        $players = $this->Player->all()->sortBy('name')->map(function($item) use ($playerColumns) {
+            $data = [];
+            foreach ($playerColumns as $col) {
+                $data[$col] = $item->{$col};
+            }
+            return (object) $data;
+        })->toArray();
+
         return [
-            'characters' => $this->Characters->getAll(),
-            'players' => $this->Player->all()->sortBy('name'),
+            'characters' => $this->Characters->getAll()->toJson(),
+            'players' => json_encode(array_values($players)),
             'stocks' => [GameLogic::MIN_STOCKS, GameLogic::MAX_STOCKS],
         ];
     }
