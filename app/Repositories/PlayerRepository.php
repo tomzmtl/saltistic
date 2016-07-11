@@ -10,13 +10,6 @@ class PlayerRepository extends Repository
 
     public function withName ($name)
     {
-        // Get data from buffer
-        if ($this->all) {
-            return $this->all->filter(function($player) use ($name) {
-                return strtolower($name) === strtolower($player->name);
-            })->first();
-        }
-
         // Get data from DB
         return $this->model->where(compact('name'))->get()->first();
     }

@@ -1,5 +1,6 @@
 import { Component } from 'preact';
 import React from 'preact-compat';
+import { int } from '../utils';
 
 export default class RadioSet extends Component {
 
@@ -18,7 +19,7 @@ export default class RadioSet extends Component {
     if ('onChange' in this.props) {
       this.props.onChange(e);
     }
-    this.setState({ value: parseInt(e.target.value, 10) });
+    this.setState({ value: int(e.target.value) });
   }
 
   renderOptions() {

@@ -2,6 +2,7 @@ import { Component } from 'preact';
 import React from 'preact-compat';
 import PlayerCard from './PlayerCard';
 import RadioSet from './RadioSet';
+import { int } from '../utils';
 
 export default class Form extends Component {
 
@@ -11,7 +12,7 @@ export default class Form extends Component {
   }
 
   handleStockChange(e) {
-    this.setState({ stocks: parseInt(e.target.value, 10) });
+    this.setState({ stocks: int(e.target.value) });
   }
 
   renderStockSelector() {

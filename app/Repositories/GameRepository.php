@@ -23,19 +23,6 @@ class GameRepository extends Repository
 
     public function withPlayers (array $playerIds)
     {
-        // Get data from buffer
-        if ($this->all) {
-            return $this->all->filter(function($game) use ($playerIds) {
-                foreach ($playerIds as $id) {
-                    if ($id === $game->player_1 || $id === $game->player_2) {
-                        return true;
-                    }
-                }
-                return false;
-            });
-        }
-
-        // Get data from DB
         $builder = $this->model->query();
         foreach ($playerIds as $id) {
             $builder->orWhere('player_1', $id);
