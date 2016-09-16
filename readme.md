@@ -2,6 +2,8 @@
 
 > Don't get mad, Get salty!
 
+## PLEASE NOTE THAT THIS PROJECT IS NO LONGER MAINTAINED. A NEW VERSION CALLED SALT OVERFLOW HAS STARTED DEVELOPMENT INSTEAD. YOU CAN FIND THE REPO [HERE](https://github.com/tomzmtl/SaltOverflow)
+
 ## Installation
 
 If you're not used to run Laravel apps (or PHP apps in general), the easiest route would be to setup Homestead, a Vagrant-based environment tailored for Laravel development.
